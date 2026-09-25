@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Resultado da partida de Equação em Foco."
+    >
+
+    <title>Resultado | Equação em Foco</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <main class="result-page">
+
+        <header class="result-header">
+
+            <span class="game-symbol" aria-hidden="true">∑</span>
+
+            <div>
+                <p class="eyebrow">EQUAÇÃO EM FOCO</p>
+                <h1>Fim de jogo!</h1>
+                <p>Confira o resultado da partida.</p>
+            </div>
+
+        </header>
+
+
+        <section class="winner-section">
+
+            <p class="eyebrow">RESULTADO FINAL</p>
+
+            <div class="winner-icon" aria-hidden="true">
+                ★
+            </div>
+
+            <h2>
+                <span id="final-player-score">0</span> pontos
+            </h2>
+
+            <p class="winner-score" id="performance-message">
+                Fim de jogo!
+            </p>
+
+        </section>
+
+
+        <section class="match-summary">
+
+            <div class="summary-card">
+                <span class="summary-label">Rodadas</span>
+                <strong id="total-rounds">10</strong>
+            </div>
+
+            <div class="summary-card">
+                <span class="summary-label">Acertos</span>
+                <strong id="total-correct">0</strong>
+            </div>
+
+            <div class="summary-card">
+                <span class="summary-label">Erros</span>
+                <strong id="total-wrong">0</strong>
+            </div>
+
+            <div class="summary-card">
+                <span class="summary-label">Pontuação</span>
+                <strong id="final-score">0</strong>
+            </div>
+
+        </section>
+
+
+        <footer class="result-actions">
+
+            <a
+                href="jogo.html"
+                class="button button-primary"
+                id="play-again"
+            >
+                Jogar novamente
+            </a>
+
+            <a
+                href="../index.html"
+                class="button button-secondary"
+            >
+                Voltar ao início
+            </a>
+
+        </footer>
+
+    </main>
+
+
+    <script src="../js/pontuacao.js"></script>
+    <script src="../js/script.js"></script>
+
+</body>
+
+</html>

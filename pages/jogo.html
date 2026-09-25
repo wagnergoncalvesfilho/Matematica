@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Partida de Equação em Foco."
+    >
+
+    <title>Jogo | Equação em Foco</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <main class="game-page">
+
+        <!-- Cabeçalho da partida -->
+        <header class="game-header">
+
+            <div class="game-info">
+                <span class="game-name">Equação em Foco</span>
+                <span class="round-info">
+                    Rodada <strong id="round-number">1</strong>
+                </span>
+            </div>
+
+            <div class="game-status">
+
+                <div class="score-display">
+                    <span class="status-label">Pontos</span>
+                    <strong id="score">0</strong>
+                </div>
+
+                <div class="timer" aria-live="polite">
+                    <span class="timer-icon" aria-hidden="true">◷</span>
+                    <strong id="timer">05:00</strong>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Área principal da rodada -->
+        <section class="round">
+
+            <header class="round-header">
+
+                <div>
+                    <p class="eyebrow" id="round-status">
+                        MEMORIZE AS EQUAÇÕES
+                    </p>
+
+                    <h1 id="round-title">
+                        Escolha seu desafio
+                    </h1>
+                </div>
+
+                <div class="difficulty-indicator">
+                    <span class="difficulty-label">Fase</span>
+                    <strong id="phase-indicator">1</strong>
+                </div>
+
+            </header>
+
+
+            <!-- Área onde as cartas serão renderizadas pelo JavaScript -->
+            <div
+                class="equation-board"
+                id="equation-board"
+                aria-label="Equações disponíveis"
+            >
+                <!-- As cartas são renderizadas dinamicamente pelo js/questoes.js -->
+            </div>
+
+
+            <!-- Equação selecionada -->
+            <section
+                class="selected-question"
+                id="selected-question"
+                aria-live="polite"
+                hidden
+            >
+
+                <div class="question-meta">
+
+                    <span class="question-difficulty">
+                        Nível <strong id="question-level">1</strong>
+                    </span>
+
+                    <span class="question-points">
+                        <strong id="question-points">100</strong> pontos
+                    </span>
+
+                </div>
+
+                <div class="question-equation">
+                    <span id="question-text">
+                        2x + 4 = 10
+                    </span>
+                </div>
+
+            </section>
+
+
+            <!-- Respostas -->
+            <section
+                class="answers"
+                id="answers"
+                aria-label="Alternativas de resposta"
+                hidden
+            >
+
+                <button
+                    class="answer-option"
+                    type="button"
+                    data-answer=""
+                    disabled
+                >
+                    <span class="answer-letter">A</span>
+                    <span class="answer-text">3</span>
+                </button>
+
+                <button
+                    class="answer-option"
+                    type="button"
+                    data-answer=""
+                    disabled
+                >
+                    <span class="answer-letter">B</span>
+                    <span class="answer-text">4</span>
+                </button>
+
+                <button
+                    class="answer-option"
+                    type="button"
+                    data-answer=""
+                    disabled
+                >
+                    <span class="answer-letter">C</span>
+                    <span class="answer-text">5</span>
+                </button>
+
+                <button
+                    class="answer-option"
+                    type="button"
+                    data-answer=""
+                    disabled
+                >
+                    <span class="answer-letter">D</span>
+                    <span class="answer-text">6</span>
+                </button>
+
+            </section>
+
+        </section>
+
+
+        <!-- Feedback da resposta -->
+        <section
+            class="answer-feedback"
+            id="answer-feedback"
+            aria-live="assertive"
+            hidden
+        >
+
+            <div class="feedback-icon" aria-hidden="true"></div>
+
+            <p class="feedback-status" id="feedback-status">
+                Correto!
+            </p>
+
+            <p class="feedback-message" id="feedback-message">
+                Você ganhou 100 pontos.
+            </p>
+
+            <div class="correct-answer">
+                <span>Resposta correta</span>
+                <strong id="correct-answer">3</strong>
+            </div>
+
+            <div class="solution">
+                <span>Resolução</span>
+                <p id="solution-text">
+                    2x + 4 = 10
+                </p>
+            </div>
+
+            <button
+                class="button button-primary"
+                id="next-round"
+                type="button"
+            >
+                Próxima rodada
+            </button>
+
+        </section>
+
+
+        <!-- Progresso da partida -->
+        <footer class="game-footer">
+
+            <span class="game-progress">
+                Fase <span id="current-round">1</span>
+                /
+                <span id="total-rounds">10</span>
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <script src="../js/questoes.js"></script>
+    <script src="../js/pontuacao.js"></script>
+    <script src="../js/script.js"></script>
+
+</body>
+
+</html>
