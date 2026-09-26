@@ -519,7 +519,7 @@ a:focus-visible {
     min-height: 100vh;
 
     margin: 0 auto;
-    padding: 1rem 1.25rem 2rem;
+    padding: 1.5rem 1.25rem 2.5rem;
 }
 
 .game-header {
@@ -530,7 +530,7 @@ a:focus-visible {
 
     gap: 1rem;
 
-    padding-bottom: 1rem;
+    padding-bottom: 1.25rem;
 
     border-bottom: 1px solid var(--color-border);
 }
@@ -595,7 +595,7 @@ a:focus-visible {
 }
 
 .round {
-    padding-top: 2rem;
+    padding-top: 2.5rem;
 }
 
 .round-header {
@@ -653,7 +653,11 @@ a:focus-visible {
 
     min-height: 11rem;
 
-    margin-top: 2rem;
+    margin-top: 2.5rem;
+}
+
+.equation-board[hidden] {
+    display: none;
 }
 
 .equation-board.shuffle-mode {
@@ -692,37 +696,6 @@ a:focus-visible {
     transform: translateY(-0.75rem);
 }
 
-
-/* Tabuleiro compacto: acionado depois que a dupla escolhe
-   uma carta, para abrir espaço para as alternativas. */
-
-.equation-board.board-compact {
-    min-height: 5rem;
-
-    margin-top: 1rem;
-}
-
-.equation-board.board-compact .equation-card,
-.equation-board.board-compact .card-inner {
-    min-height: 4.5rem;
-}
-
-.equation-board.board-compact .card-face {
-    padding: 0.5rem;
-}
-
-.equation-board.board-compact .card-equation {
-    font-size: var(--text-xs);
-}
-
-.equation-board.board-compact .card-points,
-.equation-board.board-compact .card-status {
-    display: none;
-}
-
-.equation-board.board-compact .equation-card.selected .card-face {
-    border-color: rgba(88, 199, 255, 0.4);
-}
 
 .card-inner {
     position: relative;
@@ -830,22 +803,38 @@ a:focus-visible {
    9. QUESTÃO SELECIONADA
    ========================================================= */
 
-.selected-question {
-    margin-top: 2rem;
-    padding: 1.5rem;
+@keyframes question-grow-in {
+    from {
+        transform: scale(0.85);
+        opacity: 0;
+    }
 
-    border: 1px solid rgba(88, 199, 255, 0.2);
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.selected-question {
+    margin-top: 2.5rem;
+    padding: 2rem 1.75rem;
+
+    border: 1px solid rgba(88, 199, 255, 0.3);
     border-radius: var(--radius-xl);
 
     background:
         radial-gradient(
             circle at center,
-            rgba(88, 199, 255, 0.08),
+            rgba(88, 199, 255, 0.12),
             transparent 65%
         ),
         var(--color-surface);
 
-    box-shadow: var(--shadow-glow);
+    box-shadow:
+        0 0 3rem rgba(88, 199, 255, 0.22),
+        var(--shadow-card);
+
+    animation: question-grow-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 
     text-align: center;
 }
@@ -871,7 +860,7 @@ a:focus-visible {
 }
 
 .question-equation {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
 
     color: var(--color-white);
 
@@ -891,9 +880,9 @@ a:focus-visible {
 
     grid-template-columns: repeat(2, 1fr);
 
-    gap: 0.75rem;
+    gap: 1rem;
 
-    margin-top: 1.5rem;
+    margin-top: 2rem;
 }
 
 .answers[hidden] {
@@ -903,12 +892,12 @@ a:focus-visible {
 .answer-option {
     display: flex;
 
-    min-height: 4rem;
-    padding: 0.75rem;
+    min-height: 4.5rem;
+    padding: 1rem 1.1rem;
 
     align-items: center;
 
-    gap: 0.75rem;
+    gap: 0.85rem;
 
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
@@ -1303,7 +1292,7 @@ a:focus-visible {
     }
 
     .game-page {
-        padding: 1rem 1rem 2rem;
+        padding: 1.25rem 1rem 2.25rem;
     }
 
     /* --- Tela inicial --- */
@@ -1368,7 +1357,7 @@ a:focus-visible {
     /* --- Cabeçalho da rodada --- */
 
     .round {
-        padding-top: 1.5rem;
+        padding-top: 2rem;
     }
 
     .round-header {
@@ -1389,9 +1378,10 @@ a:focus-visible {
 
         grid-template-columns: repeat(2, 1fr);
 
-        gap: 0.6rem;
+        gap: 0.75rem;
 
         min-height: 0;
+        margin-top: 2rem;
     }
 
     .equation-card,
@@ -1407,20 +1397,11 @@ a:focus-visible {
         font-size: 2rem;
     }
 
-    .equation-board.board-compact {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .equation-board.board-compact .equation-card,
-    .equation-board.board-compact .card-inner {
-        min-height: 4rem;
-    }
-
     /* --- Questão selecionada e alternativas --- */
 
     .selected-question {
-        margin-top: 1.5rem;
-        padding: 1.1rem;
+        margin-top: 2rem;
+        padding: 1.5rem 1.1rem;
     }
 
     .question-equation {
@@ -1429,19 +1410,20 @@ a:focus-visible {
     }
 
     .answers {
-        gap: 0.6rem;
+        gap: 0.75rem;
+        margin-top: 1.75rem;
     }
 
     .answer-option {
-        min-height: 3.5rem;
-        padding: 0.65rem;
+        min-height: 3.75rem;
+        padding: 0.75rem;
     }
 
     /* --- Feedback --- */
 
     .answer-feedback {
-        margin: 1.5rem auto;
-        padding: 1.25rem;
+        margin: 2rem auto;
+        padding: 1.5rem;
     }
 
     /* --- Resultado --- */

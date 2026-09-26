@@ -9,8 +9,8 @@
  * - controlar elementos gerais da interface;
  * - iniciar o jogo;
  * - controlar tutorial;
- * - controlar o timer de cada questão (varia de 1 a 5 minutos
- *   conforme o nível de dificuldade da carta escolhida pela dupla);
+ * - controlar o timer de cada questão (1min30, 3min ou 5min
+ *   conforme a dificuldade da carta escolhida pela dupla);
  * - conectar a interface aos módulos de questões e pontuação.
  *
  * Questões: js/questoes.js
@@ -24,25 +24,21 @@ const GameApp = (() => {
     ========================================================= */
 
     const CONFIG = {
-        TOTAL_ROUNDS: 10
+        TOTAL_ROUNDS: 6
     };
 
 
     /* =========================================================
        TEMPO DE RESPOSTA POR DIFICULDADE
-       Nível 1 (Super Fácil)  → 1 minuto
-       Nível 2 (Fácil)        → 2 minutos
-       Nível 3 (Médio)        → 3 minutos
-       Nível 4 (Difícil)      → 4 minutos
-       Nível 5 (Super Difícil) → 5 minutos
+       Fácil   → 1min30s
+       Médio   → 3min
+       Difícil → 5min
     ========================================================= */
 
     const TIME_BY_DIFFICULTY = {
-        1: 1 * 60,
-        2: 2 * 60,
-        3: 3 * 60,
-        4: 4 * 60,
-        5: 5 * 60
+        1: 90,   // Fácil   — 1min30s
+        2: 180,  // Médio   — 3min
+        3: 300   // Difícil — 5min
     };
 
 
@@ -196,7 +192,7 @@ const GameApp = (() => {
         stopTimer();
 
         state.remainingTime =
-            TIME_BY_DIFFICULTY[level] || TIME_BY_DIFFICULTY[5];
+            TIME_BY_DIFFICULTY[level] || TIME_BY_DIFFICULTY[3];
 
         updateTimerDisplay();
 
