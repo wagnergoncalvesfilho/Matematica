@@ -30,7 +30,141 @@
         </header>
 
 
-        <div class="tutorial-steps">
+        <!-- Revisão do conteúdo: equações exponenciais -->
+        <section class="concepts-section">
+
+            <p class="eyebrow">Antes de começar</p>
+            <h2>Relembrando equações exponenciais</h2>
+
+            <p class="concepts-intro">
+                Uma equação exponencial é uma igualdade em que a
+                incógnita aparece no expoente de uma potência.
+                A estratégia principal é transformar os dois lados
+                da igualdade em potências de mesma base — quando
+                isso é possível, basta igualar os expoentes.
+            </p>
+
+            <p class="concepts-example">
+                2ˣ = 8 &nbsp;→&nbsp; como 8 = 2³ &nbsp;→&nbsp; x = 3
+            </p>
+
+            <h3 class="concepts-subtitle">Propriedades importantes</h3>
+
+            <div class="property-grid">
+
+                <article class="property-card">
+                    <h4>Fatoração em números primos</h4>
+                    <p>
+                        Decompor um número em fatores primos ajuda
+                        a escrevê-lo como potência de outra base.
+                    </p>
+                    <p class="property-example">
+                        2ˣ = 16 → 16 = 2⁴ → x = 4
+                    </p>
+                </article>
+
+                <article class="property-card">
+                    <h4>Produto de potências de mesma base</h4>
+                    <p>
+                        Mantemos a base e somamos os expoentes.
+                    </p>
+                    <p class="property-example">
+                        2³ · 2⁴ = 2³⁺⁴ = 2⁷
+                    </p>
+                </article>
+
+                <article class="property-card">
+                    <h4>Potência de potência</h4>
+                    <p>
+                        Mantemos a base e multiplicamos os expoentes.
+                    </p>
+                    <p class="property-example">
+                        (2³)⁴ = 2³ˣ⁴ = 2¹²
+                    </p>
+                </article>
+
+                <article class="property-card">
+                    <h4>Expoente negativo</h4>
+                    <p>
+                        Uma potência de expoente negativo vira o
+                        inverso da potência positiva.
+                    </p>
+                    <p class="property-example">
+                        2⁻³ = 1/2³ = ⅛
+                    </p>
+                </article>
+
+                <article class="property-card">
+                    <h4>Expoente fracionário</h4>
+                    <p>
+                        Uma fração no expoente representa uma raiz.
+                    </p>
+                    <p class="property-example">
+                        16^(1/2) = √16 = 4
+                    </p>
+                </article>
+
+            </div>
+
+            <h3 class="concepts-subtitle">Métodos de resolução</h3>
+
+            <div class="method-list">
+
+                <article class="method-card">
+                    <span class="method-number">1</span>
+                    <div class="method-content">
+                        <h4>Igualação de bases</h4>
+                        <p>
+                            Transforme os dois lados da equação para
+                            uma mesma base e iguale os expoentes.
+                        </p>
+                        <p class="method-example">
+                            4ˣ = 64 → (2²)ˣ = 2⁶ → 2x = 6 → x = 3
+                        </p>
+                    </div>
+                </article>
+
+                <article class="method-card">
+                    <span class="method-number">2</span>
+                    <div class="method-content">
+                        <h4>Fator comum em evidência</h4>
+                        <p>
+                            Usado quando há soma ou subtração de
+                            termos exponenciais: coloque a potência
+                            comum em evidência e resolva o restante.
+                        </p>
+                        <p class="method-example">
+                            2ˣ + 2ˣ⁺¹ = 12 → 2ˣ(1+2) = 12 → 2ˣ = 4 → x = 2
+                        </p>
+                    </div>
+                </article>
+
+                <article class="method-card">
+                    <span class="method-number">3</span>
+                    <div class="method-content">
+                        <h4>Mudança de variável</h4>
+                        <p>
+                            Usado quando a equação pode virar uma
+                            equação do 2º grau: substitua a potência
+                            por y, resolva e depois volte para x.
+                        </p>
+                        <p class="method-example">
+                            2²ˣ - 5·2ˣ + 6 = 0 → y = 2ˣ → y² - 5y + 6 = 0 → x = 1 ou x = log₂3
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- Como jogar -->
+        <section class="tutorial-how-to">
+
+            <h3 class="concepts-subtitle">Como jogar</h3>
+
+            <div class="tutorial-steps">
 
             <article class="tutorial-step">
                 <span class="step-number">1</span>
@@ -103,6 +237,8 @@
 
         </div>
 
+        </section>
+
 
         <div class="tutorial-actions">
 
@@ -115,10 +251,6 @@
             </a>
 
         </div>
-
-        <a href="jogo.html" class="skip-tutorial skip-tutorial-center">
-            Pular tutorial
-        </a>
 
     </main>
 

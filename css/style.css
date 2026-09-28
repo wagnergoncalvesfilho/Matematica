@@ -488,24 +488,188 @@ a:focus-visible {
     gap: 1rem;
 }
 
-.skip-tutorial {
+
+/* --- Seção de revisão de conceitos --- */
+
+.concepts-section {
+    margin-bottom: 2.75rem;
+    padding: 1.75rem;
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+
+    background:
+        linear-gradient(
+            160deg,
+            rgba(88, 199, 255, 0.07),
+            rgba(16, 40, 68, 0.9) 45%
+        );
+
+    box-shadow: var(--shadow-card);
+}
+
+.concepts-section h2 {
+    margin-top: 0.35rem;
+
+    color: var(--color-white);
+
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    line-height: 1.2;
+}
+
+.concepts-intro {
+    margin-top: 0.85rem;
+
+    max-width: 46rem;
+
+    color: var(--color-text);
+
+    font-size: var(--text-sm);
+    line-height: 1.6;
+}
+
+.concepts-subtitle {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+
+    padding-left: 0.75rem;
+
+    border-left: 0.25rem solid var(--color-primary);
+
+    color: var(--color-white);
+
+    font-size: var(--text-md);
+    font-weight: 800;
+}
+
+.concepts-example,
+.property-example,
+.method-example {
+    margin-top: 0.75rem;
+    padding: 0.6rem 0.85rem;
+
+    border-radius: var(--radius-sm);
+
+    background: rgba(88, 199, 255, 0.08);
+
+    color: var(--color-primary-soft);
+
+    font-size: var(--text-sm);
+    font-weight: 700;
+
+    overflow-wrap: break-word;
+}
+
+.property-grid {
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+
+    gap: 1rem;
+}
+
+.property-card {
+    padding: 1.1rem;
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(16, 40, 68, 0.9),
+            rgba(11, 29, 52, 0.9)
+        );
+
+    transition: transform var(--transition-normal), border-color var(--transition-normal);
+}
+
+.property-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(88, 199, 255, 0.25);
+}
+
+.property-card h4 {
+    color: var(--color-white);
+
+    font-size: var(--text-md);
+}
+
+.property-card p:not(.property-example) {
+    margin-top: 0.35rem;
+
     color: var(--color-text-muted);
 
     font-size: var(--text-sm);
-
-    transition: color var(--transition-fast);
 }
 
-.skip-tutorial:hover {
-    color: var(--color-primary);
+.method-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 1rem;
 }
 
-.skip-tutorial-center {
-    display: block;
+.method-card {
+    display: flex;
 
-    margin-top: 1.75rem;
+    padding: 1.25rem;
 
-    text-align: center;
+    gap: 1rem;
+
+    align-items: flex-start;
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(16, 40, 68, 0.9),
+            rgba(11, 29, 52, 0.9)
+        );
+
+    box-shadow: var(--shadow-card);
+
+    transition: transform var(--transition-normal), border-color var(--transition-normal);
+}
+
+.method-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(165, 107, 255, 0.3);
+}
+
+.method-number {
+    display: grid;
+    place-items: center;
+
+    width: 2.5rem;
+    height: 2.5rem;
+
+    flex-shrink: 0;
+
+    border-radius: 0.75rem;
+
+    background: rgba(165, 107, 255, 0.15);
+
+    color: var(--color-purple);
+
+    font-size: var(--text-sm);
+    font-weight: 800;
+}
+
+.method-content h4 {
+    color: var(--color-white);
+
+    font-size: var(--text-md);
+}
+
+.method-content p:not(.method-example) {
+    margin-top: 0.35rem;
+
+    color: var(--color-text-muted);
+
+    font-size: var(--text-sm);
 }
 
 
@@ -548,12 +712,6 @@ a:focus-visible {
 
     font-size: var(--text-lg);
     font-weight: 800;
-}
-
-.round-info {
-    color: var(--color-text-muted);
-
-    font-size: var(--text-sm);
 }
 
 .game-status {
@@ -607,6 +765,12 @@ a:focus-visible {
     gap: 1rem;
 }
 
+.round-heading {
+    flex: 1 1 auto;
+
+    min-width: 0;
+}
+
 .round-header h1 {
     margin-top: 0.25rem;
 
@@ -617,6 +781,8 @@ a:focus-visible {
 }
 
 .difficulty-indicator {
+    flex-shrink: 0;
+
     padding: 0.65rem 1rem;
 
     border: 1px solid var(--color-border);
@@ -843,31 +1009,45 @@ a:focus-visible {
     display: flex;
 
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 
     gap: 1rem;
 }
 
 .question-difficulty,
 .question-points {
+    padding: 0.35rem 0.75rem;
+
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+
+    background: rgba(16, 40, 68, 0.6);
+
     color: var(--color-text-muted);
 
     font-size: var(--text-sm);
 }
 
 .question-points {
+    border-color: rgba(88, 199, 255, 0.3);
+    background: rgba(88, 199, 255, 0.1);
+
     color: var(--color-primary);
+    font-weight: 700;
 }
 
 .question-equation {
     margin-top: 1.5rem;
 
+    overflow: hidden;
+
     color: var(--color-white);
 
-    font-size: clamp(2rem, 8vw, 4rem);
+    font-size: clamp(1.5rem, 6vw, 3.5rem);
     font-weight: 800;
 
     letter-spacing: 0.02em;
+    white-space: nowrap;
 }
 
 
@@ -966,21 +1146,55 @@ a:focus-visible {
 }
 
 .feedback-icon {
-    width: 4rem;
-    height: 4rem;
+    display: grid;
+    place-items: center;
+
+    width: 4.5rem;
+    height: 4.5rem;
 
     margin: 0 auto 1rem;
 
     border-radius: 50%;
 
-    background: rgba(88, 199, 255, 0.12);
+    font-weight: 800;
+    line-height: 1;
+}
+
+.feedback-correct .feedback-icon {
+    background: rgba(105, 214, 255, 0.15);
+
+    color: var(--color-success);
+
+    font-size: 2rem;
+}
+
+.feedback-correct .feedback-icon::before {
+    content: "✓";
+}
+
+.feedback-wrong .feedback-icon {
+    background: rgba(179, 108, 255, 0.15);
+
+    color: var(--color-error);
+
+    font-size: 2.25rem;
+}
+
+.feedback-wrong .feedback-icon::before {
+    content: "×";
 }
 
 .feedback-status {
-    color: var(--color-success);
-
     font-size: var(--text-2xl);
     font-weight: 850;
+}
+
+.feedback-correct .feedback-status {
+    color: var(--color-success);
+}
+
+.feedback-wrong .feedback-status {
+    color: var(--color-error);
 }
 
 .feedback-message {
@@ -1320,6 +1534,16 @@ a:focus-visible {
         grid-template-columns: 1fr;
     }
 
+    .concepts-section {
+        margin-bottom: 2rem;
+        padding: 1.25rem;
+    }
+
+    .method-card {
+        gap: 0.85rem;
+        padding: 1rem;
+    }
+
     .tutorial-actions {
         flex-wrap: wrap;
 
@@ -1361,8 +1585,6 @@ a:focus-visible {
     }
 
     .round-header {
-        flex-wrap: wrap;
-
         gap: 0.75rem;
     }
 
@@ -1402,11 +1624,6 @@ a:focus-visible {
     .selected-question {
         margin-top: 2rem;
         padding: 1.5rem 1.1rem;
-    }
-
-    .question-equation {
-        overflow-wrap: break-word;
-        word-break: break-word;
     }
 
     .answers {

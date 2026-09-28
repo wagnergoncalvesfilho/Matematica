@@ -71,7 +71,7 @@ const QuestionManager = (() => {
     const PHASE_LEVELS = [
         [1, 1, 1, 1],
         [1, 1, 1, 1],
-        [1, 1, 1, 1],
+        [1, 1, 2, 2],
         [2, 2, 2, 2],
         [2, 2, 2, 2],
         [3, 3, 3, 3]
@@ -398,6 +398,29 @@ const QuestionManager = (() => {
        SELEÇÃO DE UMA CARTA
     ========================================================= */
 
+    const fitEquationText = () => {
+
+        const wrapper = $(".question-equation");
+        const span = $("#question-text");
+
+        if (!wrapper || !span) {
+            return;
+        }
+
+        // Volta ao tamanho padrão (definido no CSS) antes de medir,
+        // para não herdar o encolhimento da questão anterior.
+        span.style.fontSize = "";
+
+        const minFontSize = 15; // px — nunca fica menor que isso
+        let fontSize = parseFloat(window.getComputedStyle(span).fontSize);
+
+        while (wrapper.scrollWidth > wrapper.clientWidth && fontSize > minFontSize) {
+            fontSize -= 1;
+            span.style.fontSize = `${fontSize}px`;
+        }
+    };
+
+
     const showSelectedQuestion = (question) => {
 
         const section = $("#selected-question");
@@ -410,6 +433,8 @@ const QuestionManager = (() => {
         if (text) text.textContent = question.equation;
 
         if (section) section.hidden = false;
+
+        fitEquationText();
     };
 
     const renderAnswers = (question) => {
@@ -712,6 +737,13 @@ const QuestionManager = (() => {
         initAnswerEvents();
 
         prepareRound();
+
+        window.addEventListener("resize", () => {
+            const section = $("#selected-question");
+            if (section && !section.hidden) {
+                fitEquationText();
+            }
+        });
     };
 
 

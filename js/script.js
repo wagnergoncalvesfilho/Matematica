@@ -114,23 +114,6 @@ const GameApp = (() => {
 
 
     /* =========================================================
-       TUTORIAL
-    ========================================================= */
-
-    const initTutorial = () => {
-        const skipButton = $(".skip-tutorial");
-
-        if (!skipButton) {
-            return;
-        }
-
-        skipButton.addEventListener("click", () => {
-            sessionStorage.setItem("tutorialSkipped", "true");
-        });
-    };
-
-
-    /* =========================================================
        TIMER DA QUESTÃO
     ========================================================= */
 
@@ -398,10 +381,6 @@ const GameApp = (() => {
 
             case "home":
                 initHome();
-                break;
-
-            case "tutorial":
-                initTutorial();
                 break;
 
             case "game":
